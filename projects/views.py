@@ -27,10 +27,6 @@ def projects(request):
     return render(request, 'projects/projects.html', context)
 
 def project(request, pk):
-    projectObj = None
-
-    for i in projectsList:
-        if i['id'] == pk:
-            projectObj = i
+    projectObj = Project.objects.get(id=pk)
 
     return render(request, 'projects/single-project.html', {'project': projectObj})
