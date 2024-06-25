@@ -2,12 +2,18 @@
 
 {% block content %}
 
+  {{ projects }}
+
   <h1>
-    Projects templates
+    Projects
   </h1>
 
-  <p>
-    This is the main template
-  </p>
+  <ul>
+    {% for project in projects %}
+      <li>
+        Title: {{ project.title }}
+      </li>
+    {% endfor %}
+  </ul>
 
 {% endblock content %}
