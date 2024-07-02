@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+{% load static %}
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -6,6 +9,10 @@
     <meta name="description"
           content="Social network built with Django to share django portfolios" />
     <meta name="keywords" content="Django, Python, Portfolios" />
+    <link rel="stylesheet"
+          type="text/css"
+          media="screen"
+          href='{% static "styles/main.css" %}'>
     <title>Django Devs</title>
   </head>
   <body>
