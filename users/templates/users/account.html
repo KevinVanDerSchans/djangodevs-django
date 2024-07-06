@@ -102,7 +102,8 @@
         <h3 class="settings__title">
           Projects
         </h3>
-        <a class="tag tag--pill tag--sub settings__btn tag--lg" href="#"><i class="im im-plus"></i> Add Project</a>
+        <a class="tag tag--pill tag--sub settings__btn tag--lg"
+           href="{% url 'create-project' %}"><i class="im im-plus"></i> Add Project</a>
       </div>
 
       <table class="settings__table">
@@ -121,17 +122,23 @@
               </p>
             </td>
             <td class="settings__tableActions">
-              <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-edit"></i> Edit</a>
-            <a class="tag tag--pill tag--main settings__btn" href="#"><i class="im im-x-mark-circle-o"></i>
-          Delete</a>
-        </td>
-      </tr>
+              <a class="tag tag--pill tag--main settings__btn"
+                 href="{% url 'update-project' project.id %}">
+                <i class="im im-edit"></i> Edit
+              </a>
 
-    {% endfor %}
+              <a class="tag tag--pill tag--main settings__btn"
+                 href="{% url 'delete-project' project.id %}">
+                <i class="im im-x-mark-circle-o"></i>Delete
+              </a>
+            </td>
+          </tr>
 
-  </table>
-</div>
-</div>
+        {% endfor %}
+
+      </table>
+    </div>
+  </div>
 </div>
 </main>
 
