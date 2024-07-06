@@ -1,5 +1,7 @@
 {% extends 'main.html' %}
 
+{% load static %}
+
 {% block content %}
 
   {% if page == 'register' %}
@@ -24,7 +26,7 @@
       <div class="card">
         <div class="auth__header text-center">
           <a href="/">
-            <img src="images/icon.svg" alt="icon" />
+            <img src="{% static 'images/icon.svg' %}" alt="icon" />
           </a>
           <h3>
             Account Login
