@@ -6,8 +6,8 @@ from .forms import ProjectForm
 
 def projects(request):
     projects = Project.objects.all()
-    context = {'projects': projects}
 
+    context = {'projects': projects}
     return render(request, 'projects/projects.html', context)
 
 def project(request, pk):
@@ -26,7 +26,6 @@ def createProject(request):
             return redirect('projects')
 
     context = {'form': form}
-
     return render(request, 'projects/project_form.html', context)
 
 @login_required(login_url='login')
@@ -41,7 +40,6 @@ def updateProject(request, pk):
             return redirect('projects')
 
     context = {'form': form}
-
     return render(request, 'projects/project_form.html', context)
 
 @login_required(login_url='login')
