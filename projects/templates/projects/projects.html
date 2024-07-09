@@ -85,7 +85,7 @@
           </li>
         {% endif %}
 
-        {% for page in paginator.page_range %}
+        {% for page in custom_range %}
           {% if page == projects.number %}
             <li>
               <a href="?page={{ page }}" class="btn page-link btn--sub">
@@ -111,6 +111,7 @@
         {% endif %}
       </ul>
     </div>
+
   </main>
 
 {% endblock content %}
