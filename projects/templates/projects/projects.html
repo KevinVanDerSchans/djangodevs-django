@@ -101,6 +101,14 @@
 
           {% endif %}
         {% endfor %}
+
+        {% if projects.has_next %}
+          <li>
+            <a href="?page={{ projects.next_page_number }}" class="btn page-link">
+              Next &#10095;
+            </a>
+          </li>
+        {% endif %}
       </ul>
     </div>
   </main>
