@@ -12,7 +12,10 @@
         </div>
 
         <div class="hero-section__search">
-          <form class="form" action="#" method="get">
+          <form id='searchForm'
+                class="form"
+                action="{% url 'projects' %}"
+                method="get">
             <div class="form__field">
               <label for="formInput#search">
                 Search By Projects
@@ -20,8 +23,9 @@
               <input class="input input--text"
                      id="formInput#search"
                      type="text"
-                     name="text"
-                     placeholder="Search by Project Title" />
+                     name="search_query"
+                     placeholder="Search by Project Title"
+                     value="{{ search_query }}" />
             </div>
 
             <input class="btn btn--sub btn--lg" type="submit" value="Search" />
@@ -39,7 +43,7 @@
               <div class="card project">
                 <a href="{% url 'project' project.id %}" class="project">
                   <img class="project__thumbnail"
-                       src="{{ project.featured_image.url }}"
+                       src="{{ project.imageURL }}"
                        alt="project thumbnail" />
                   <div class="card__body">
                     <h3 class="project__title">
@@ -47,9 +51,8 @@
                     </h3>
                     <p>
                       <a class="project__author"
-                         href="{% url 'user-profile' project.owner.id %}">
-                        By {{ project.owner.name }}
-                      </a>
+                         href="{% url 'user-profile' project.owner.id %}">By
+                      {{ project.owner.name }}</a>
                     </p>
                     <p class="project--rating">
                       <span style="font-weight: bold;">{{ project.vote_ratio }}%</span> Positive
@@ -61,16 +64,20 @@
                           <small>{{ tag }}</small>
                         </span>
                       {% endfor %}
+
                     </div>
                   </div>
                 </a>
               </div>
             </div>
-
           {% endfor %}
+
         </div>
       </div>
     </section>
+
+    {% include 'pagination.html' with queryset=projects custom_range=custom_range %}
+
   </main>
 
-{% endblock content %}
+{% endblock %}
