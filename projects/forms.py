@@ -21,7 +21,6 @@ class ProjectForm(ModelForm):
         # })
 
 class ReviewForm(ModelForm):
-
     class Meta:
         model = Review
         fields = ['value', 'body']
