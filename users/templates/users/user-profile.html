@@ -8,9 +8,7 @@
         <div class="column column--1of3">
           <div class="card text-center">
             <div class="card__body dev">
-              <img class="avatar avatar--xl"
-                   alt="Avatar"
-                   src="{{ profile.profile_image.url }}" />
+              <img class="avatar avatar--xl" alt="Avatar" src="{{ profile.imageURL }}" />
               <h2 class="dev__name">
                 {{ profile.name }}
               </h2>
@@ -114,7 +112,7 @@
                   <div class="card project">
                     <a href="{% url 'project' project.id %}" class="project">
                       <img class="project__thumbnail"
-                           src="{{ project.featured_image.url }}"
+                           src="{{ project.imageURL }}"
                            alt="project thumbnail" />
                       <div class="card__body">
                         <h3 class="project__title">
