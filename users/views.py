@@ -13,22 +13,23 @@ def loginUser(request):
     if request.user.is_authenticated:
         return redirect('profiles')
 
-    if (request.method == 'POST'):
+    if request.method == 'POST':
         username = request.POST['username'].lower()
         password = request.POST['password']
 
         try:
             user = User.objects.get(username=username)
         except:
-            messages.error(request, 'Username does not exist in the database')
+            messages.error(request, 'Username does not exist')
 
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
             login(request, user)
             return redirect(request.GET['next'] if 'next' in request.GET else 'account')
+
         else:
-            messages.error(request, 'Username or password is incorrect')
+            messages.error(request, 'Username OR password is incorrect')
 
     return render(request, 'users/login_register.html')
 
@@ -44,6 +45,7 @@ def registerUser(request):
 
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
+
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
@@ -79,11 +81,7 @@ def userProfile(request, pk):
     topSkills = profile.skill_set.exclude(description__exact="")
     otherSkills = profile.skill_set.filter(description="")
 
-    context = {
-        'profile': profile,
-        'topSkills': topSkills,
-        'otherSkills': otherSkills,
-    }
+    context = {'profile': profile, 'topSkills': topSkills, "otherSkills": otherSkills}
     return render(request, 'users/user-profile.html', context)
 
 @login_required(login_url='login')
