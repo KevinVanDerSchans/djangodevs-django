@@ -41,11 +41,9 @@ def logoutUser(request):
 def registerUser(request):
     page = 'register'
     form = CustomUserCreationForm()
-    context = {'page': page, 'form': form}
 
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
-
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
@@ -57,8 +55,10 @@ def registerUser(request):
             return redirect('edit-account')
 
         else:
-            messages.error(request, 'An error has occurred during registration...')
+            messages.success(
+                request, 'An error has occurred during registration')
 
+    context = {'page': page, 'form': form}
     return render(request, 'users/login_register.html', context)
 
 def profiles(request):
