@@ -14,11 +14,17 @@
             Are you sure you want to delete "{{ object }}"?
           </p>
 
-          <a href="{{ request.GET.next }}" class="btn btn--sub btn--lg  my-md">
+          <a href="{{ request.GET.next }}"
+             class="btn btn--sub btn--lg  my-md"
+             role="button"
+             aria-label="Go back">
             Go back
           </a>
 
-          <input class="btn btn--sub btn--lg  my-md" type="submit" value="Confirm" />
+          <input class="btn btn--sub btn--lg  my-md"
+                 type="submit"
+                 value="Confirm"
+                 aria-label="Confirm deletion" />
         </form>
       </div>
     </div>
