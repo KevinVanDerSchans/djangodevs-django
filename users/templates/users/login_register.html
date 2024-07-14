@@ -9,7 +9,7 @@
     <div class="auth">
       <div class="card">
         <div class="auth__header text-center">
-          <a href="/">
+          <a href="/" aria-label="Home">
             <img src="{% static 'images/icon.svg' %}" alt="icon" />
           </a>
           <h3>
@@ -53,7 +53,7 @@
           <p>
             Already have an Account?
           </p>
-          <a href="{% url 'login' %}">Log In</a>
+          <a href="{% url 'login' %}" aria-label="Login">Log In</a>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@
     <div class="auth">
       <div class="card">
         <div class="auth__header text-center">
-          <a href="/">
+          <a href="/" aria-label="Home">
             <img src="{% static 'images/icon.svg' %}" alt="icon" />
           </a>
           <h3>
@@ -100,14 +100,14 @@
           </div>
           <div class="auth__actions">
             <input class="btn btn--sub btn--lg" type="submit" value="Log In" />
-            <a href="{% url 'reset_password' %}">Forget Password?</a>
+            <a href="{% url 'reset_password' %}" aria-label="Reset password">Forget Password?</a>
           </div>
         </form>
         <div class="auth__alternative">
           <p>
             Don’t have an Account?
           </p>
-          <a href="{% url 'register' %}">Sign Up</a>
+          <a href="{% url 'register' %}" aria-label="Register">Sign Up</a>
         </div>
       </div>
     </div>

@@ -8,7 +8,9 @@
         <div class="column column--1of3">
           <div class="card text-center">
             <div class="card__body dev">
-              <img class="avatar avatar--xl" alt="Avatar" src="{{ profile.imageURL }}" />
+              <img class="avatar avatar--xl"
+                   alt="Avatar of {{ profile.name }}"
+                   src="{{ profile.imageURL }}" />
               <h2 class="dev__name">
                 {{ profile.name }}
               </h2>
@@ -22,7 +24,10 @@
 
                 {% if profile.social_github %}
                   <li>
-                    <a title="Github" href="{{ profile.social_github }}" target="_blank">
+                    <a title="Github"
+                       href="{{ profile.social_github }}"
+                       target="_blank"
+                       aria-label="Github Profile">
                       <span class="btn btn--main btn--sm">Github</span>
                     </a>
                   </li>
@@ -30,7 +35,10 @@
 
                 {% if profile.social_twitter %}
                   <li>
-                    <a title="Twitter" href="{{ profile.social_twitter }}" target="_blank">
+                    <a title="Twitter"
+                       href="{{ profile.social_twitter }}"
+                       target="_blank"
+                       aria-label="Twitter Profile">
                       <span class="btn btn--main btn--sm">Twitter</span>
                     </a>
                   </li>
@@ -38,7 +46,10 @@
 
                 {% if profile.social_linkedin %}
                   <li>
-                    <a title="LinkedIn" href="{{ profile.social_linkedin }}" target="_blank">
+                    <a title="LinkedIn"
+                       href="{{ profile.social_linkedin }}"
+                       target="_blank"
+                       aria-label="LinkedIn Profile">
                       <span class="btn btn--main btn--sm">LinkedIn</span>
                     </a>
                   </li>
@@ -46,7 +57,10 @@
 
                 {% if profile.social_website %}
                   <li>
-                    <a title="portfolio" href="{{ profile.social_website }}" target="_blank">
+                    <a title="portfolio"
+                       href="{{ profile.social_website }}"
+                       target="_blank"
+                       aria-label="Portfolio Website">
                       <span class="btn btn--main btn--sm">Portfolio</span>
                     </a>
                   </li>
@@ -55,7 +69,8 @@
 
               {% if request.user.profile.id != profile.id %}
                 <a href="{% url 'create-message' profile.id %}"
-                   class="btn btn--sub btn--lg">Send Message </a>
+                   class="btn btn--sub btn--lg"
+                   aria-label="Send Message to {{ profile.name }}">Send Message </a>
               {% endif %}
             </div>
           </div>
@@ -113,7 +128,7 @@
                     <a href="{% url 'project' project.id %}" class="project">
                       <img class="project__thumbnail"
                            src="{{ project.imageURL }}"
-                           alt="project thumbnail" />
+                           alt="Thumbnail of project {{ project.title }}" />
                       <div class="card__body">
                         <h3 class="project__title">
                           {{ project.title }}

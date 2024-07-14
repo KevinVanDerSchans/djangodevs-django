@@ -70,7 +70,6 @@ class Review(models.Model):
     def __str__(self):
         return self.value
 
-
 class Tag(models.Model):
     name = models.CharField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)

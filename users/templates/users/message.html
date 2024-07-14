@@ -4,7 +4,9 @@
   <main class="messagePage my-xl">
     <div class="content-box">
       <div class="message">
-        <a class="backButton" href="{% url 'inbox' %}"><i class="im im-angle-left"></i></a>
+        <a class="backButton"
+           href="{% url 'inbox' %}"
+           aria-label="Back to inbox"><i class="im im-angle-left"></i></a>
         <h2 class="message__subject">
           {{ message.subject }}
         </h4>

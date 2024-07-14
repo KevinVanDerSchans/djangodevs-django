@@ -108,12 +108,24 @@ WSGI_APPLICATION = 'djangodevs_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME', config('DB_NAME')),
+        'USER': os.environ.get('DB_USER', config('DB_USER')),
+        'PASSWORD': os.environ.get('DB_PASSWORD', config('DB_PASSWORD')),
+        'HOST': os.environ.get('DB_HOST', config('DB_HOST')),
+        'PORT': os.environ.get('DB_PORT', config('DB_PORT')),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -172,3 +184,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if os.getcwd() == '/app':
+    DEBUG = False

@@ -10,35 +10,33 @@
     <meta name="description"
           content="Social network built with Django to share django portfolios" />
     <meta name="keywords" content="Django, Python, Portfolios" />
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <meta name="author" content="Kevin van der Schans Delgado" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:site_name" content="DjangoDevs" />
+    <meta name="google-site-verification" content="verification_token" />
+    <link rel="shortcut icon"
+          href="{% static 'favicon.ico' %}"
+          type="image/x-icon" />
     <link rel="stylesheet"
           href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" />
     <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
     <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
     <title>DjangoDevs</title>
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
   </head>
   <body>
 
     {% include 'navbar.html' %}
 
-    <!-- {% if messages %}
-      <ul class="messages">
-        {% for message in messages %}
-          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
-            {{ message }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %} -->
-
     {% if messages %}
 
       {% for message in messages %}
-        <div class="alert  alert--{{ message.tags }}">
+        <div class="alert  alert--{{ message.tags }}" role="alert">
           <p class="alert__message">
             {{ message }}
           </p>
-          <button class="alert__close">
+          <button class="alert__close" aria-label="Close alert">
             x
           </button>
         </div>
@@ -51,6 +49,7 @@
 
     {% endblock content %}
   </body>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
   <script src="{% static 'uikit/app.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
 

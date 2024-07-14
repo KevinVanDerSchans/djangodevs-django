@@ -7,7 +7,6 @@ from .models import Profile
 from django.core.mail import send_mail
 from django.conf import settings
 
-# @receiver(post_save, sender=Profile)
 def createProfile(sender, instance, created, **kwargs):
     if created:
         user = instance
@@ -18,7 +17,7 @@ def createProfile(sender, instance, created, **kwargs):
             name=user.first_name,
         )
 
-        subject = 'Welcome to DevSearch'
+        subject = 'Welcome to DjangoDevs!'
         message = 'We are glad you are here!'
 
         send_mail(

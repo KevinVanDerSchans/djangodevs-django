@@ -16,10 +16,6 @@ class ProjectForm(ModelForm):
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
 
-        # self.fields['title'].widget.attrs.update({
-        #     'class': input,
-        # })
-
 class ReviewForm(ModelForm):
     class Meta:
         model = Review

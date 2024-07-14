@@ -39,7 +39,6 @@ class Profile(models.Model):
             url = ''
         return url
 
-
 class Skill(models.Model):
     owner = models.ForeignKey(
         Profile, on_delete=models.CASCADE, null=True, blank=True)
@@ -51,7 +50,6 @@ class Skill(models.Model):
 
     def __str__(self):
         return str(self.name)
-
 
 class Message(models.Model):
     sender = models.ForeignKey(
