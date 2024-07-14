@@ -9,7 +9,8 @@
           <div class="card text-center">
             <div class="card__body dev">
               <a class="tag tag--pill tag--main settings__btn"
-                 href="{% url 'edit-account' %}"><i class="im im-edit"></i> Edit</a>
+                 href="{% url 'edit-account' %}"
+                 aria-label="Edit Profile"><i class="im im-edit"></i> Edit</a>
               <img class="avatar avatar--xl dev__avatar"
                    alt="Avatar"
                    src="{{ profile.imageURL }}" />
@@ -27,7 +28,10 @@
 
                 {% if profile.social_github %}
                   <li>
-                    <a title="Github" href="{{ profile.social_github }}" target="_blank">
+                    <a title="Github"
+                       href="{{ profile.social_github }}"
+                       target="_blank"
+                       aria-label="Github Profile">
                       <span class="btn btn--main btn--sm">Github</span>
                     </a>
                   </li>
@@ -35,7 +39,10 @@
 
                 {% if profile.social_twitter %}
                   <li>
-                    <a title="Twitter" href="{{ profile.social_twitter }}" target="_blank">
+                    <a title="Twitter"
+                       href="{{ profile.social_twitter }}"
+                       target="_blank"
+                       aria-label="Twitter Profile">
                       <span class="btn btn--main btn--sm">Twitter</span>
                     </a>
                   </li>
@@ -43,7 +50,10 @@
 
                 {% if profile.social_linkedin %}
                   <li>
-                    <a title="LinkedIn" href="{{ profile.social_linkedin }}" target="_blank">
+                    <a title="LinkedIn"
+                       href="{{ profile.social_linkedin }}"
+                       target="_blank"
+                       aria-label="LinkedIn Profile">
                       <span class="btn btn--main btn--sm">LinkedIn</span>
                     </a>
                   </li>
@@ -51,7 +61,10 @@
 
                 {% if profile.social_website %}
                   <li>
-                    <a title="portfolio" href="{{ profile.social_website }}" target="_blank">
+                    <a title="portfolio"
+                       href="{{ profile.social_website }}"
+                       target="_blank"
+                       aria-label="Portfolio Website">
                       <span class="btn btn--main btn--sm">Portfolio</span>
                     </a>
                   </li>
@@ -74,7 +87,8 @@
               Skills
             </h3>
             <a class="tag tag--pill tag--sub settings__btn tag--lg"
-               href="{% url 'create-skill' %}"><i class="im im-plus"></i> Add Skill</a>
+               href="{% url 'create-skill' %}"
+               aria-label="Add Skill"><i class="im im-plus"></i> Add Skill</a>
           </div>
 
           <table class="settings__table">
@@ -91,11 +105,13 @@
                 </td>
                 <td class="settings__tableActions">
                   <a class="tag tag--pill tag--main settings__btn"
-                     href="{% url 'update-skill' skill.id %}">
+                     href="{% url 'update-skill' skill.id %}"
+                     aria-label="Edit Skill">
                     Edit
                   </a>
                   <a class="tag tag--pill tag--main settings__btn"
-                     href="{% url 'delete-skill' skill.id %}?next=/account">
+                     href="{% url 'delete-skill' skill.id %}?next=/account"
+                     aria-label="Delete Skill">
                     Delete
                   </a>
                 </td>
@@ -109,7 +125,8 @@
               Projects
             </h3>
             <a class="tag tag--pill tag--sub settings__btn tag--lg"
-               href="{% url 'create-project' %}"><i class="im im-plus"></i> Add Project</a>
+               href="{% url 'create-project' %}"
+               aria-label="Add Project"><i class="im im-plus"></i> Add Project</a>
           </div>
 
           <table class="settings__table">
@@ -129,12 +146,14 @@
                 </td>
                 <td class="settings__tableActions">
                   <a class="tag tag--pill tag--main settings__btn"
-                     href="{% url 'update-project' project.id %}">
+                     href="{% url 'update-project' project.id %}"
+                     aria-label="Edit Project">
                     <i class="im im-edit"></i> Edit
                   </a>
 
                   <a class="tag tag--pill tag--main settings__btn"
-                     href="{% url 'delete-project' project.id %}?next=/account">
+                     href="{% url 'delete-project' project.id %}?next=/account"
+                     aria-label="Delete Project">
                     <i class="im im-x-mark-circle-o"></i>Delete
                   </a>
                 </td>
