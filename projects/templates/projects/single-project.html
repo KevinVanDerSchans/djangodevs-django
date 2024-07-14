@@ -20,7 +20,8 @@
           {% if project.source_link %}
           <a class="singleProject__liveLink"
              href="{{ project.source_link }}"
-             target="_blank"><i class="im im-external-link"></i>
+             target="_blank"
+             aria-label="Source Code Link"><i class="im im-external-link"></i>
           Source Code
         </a>
 
@@ -29,7 +30,8 @@
       {% if project.demo_link %}
       <a class="singleProject__liveLink"
          href="{{ project.source_link }}"
-         target="_blank"><i class="im im-external-link"></i>
+         target="_blank"
+         aria-label="Demo Link"><i class="im im-external-link"></i>
       Demo Link
     </a>
 
@@ -38,7 +40,7 @@
 <div class="column column--2of3">
   <img class="singleProject__preview"
        src="{{ project.imageURL }}"
-       alt="portfolio thumbnail" />
+       alt="Thumbnail of {{ project.title }}" />
   <a href="{% url 'user-profile' project.owner.id %}"
      class="singleProject__developer">{{ project.owner.name }}</a>
   <h2 class="singleProject__title">
@@ -102,7 +104,7 @@
             <a href="{% url 'user-profile' review.owner.id %}">
               <img class="avatar avatar--md"
                    src="{{ review.owner.profile_image.url }}"
-                   alt="user" />
+                   alt="Profile picture of {{ review.owner.name }}" />
             </a>
 
             <div class="comment__details">
