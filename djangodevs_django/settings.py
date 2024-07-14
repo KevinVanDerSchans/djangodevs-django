@@ -112,11 +112,11 @@ WSGI_APPLICATION = 'djangodevs_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
+        'NAME': os.environ.get('DB_NAME', config('DB_NAME')),
+        'USER': os.environ.get('DB_USER', config('DB_USER')),
+        'PASSWORD': os.environ.get('DB_PASSWORD', config('DB_PASSWORD')),
+        'HOST': os.environ.get('DB_HOST', config('DB_HOST')),
+        'PORT': os.environ.get('DB_PORT', config('DB_PORT')),
     }
 }
 
@@ -184,3 +184,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if os.getcwd() == '/app':
+    DEBUG = False
